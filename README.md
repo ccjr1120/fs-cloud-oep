@@ -48,11 +48,11 @@
 
     ​	以下省略了(oep-common)
 
-    		* core	公共类库
-    		* seata  分布式事务
-    		* security 资源服务中心
-    		* sentinel 限流中心
-    		* swagger 接口文档
+    * core	公共类库
+    * seata  分布式事务
+    * security 资源服务中心
+    * sentinel 限流中心
+    * swagger 接口文档
 
   * 网管、认证服务
 
@@ -62,7 +62,7 @@
       * auth
       * sentinel
 
-  * 应用服务端(rapid-sservice)
+  * 应用服务端(rapid-service)
 
     ​	以下省略rapid-()-service
 
@@ -72,7 +72,9 @@
 
 ​		
 
+​		尽管上面有一些列举了，但我还不知道如何配置，所以在项目中很有些未配置的模块。如:sentinel
 
+​		之后就是针对各个模块做单独的配置了，我只会在接下来的篇幅介绍我配置的顺序来让项目跑起来。之后，目光就可以集中在代码里了
 
 
 
