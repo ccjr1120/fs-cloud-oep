@@ -10,7 +10,22 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>oep-gateway</artifactId>
-
+<dependencies>
+    <dependency>
+        <groupId>com.alibaba.csp</groupId>
+        <artifactId>sentinel-spring-cloud-gateway-adapter</artifactId>
+    </dependency>
+    <dependency>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-starter-gateway</artifactId>
+    </dependency>
+    <!--用户模块-->
+    <dependency>
+        <groupId>com.cloud</groupId>
+        <artifactId>oep-user-service-api</artifactId>
+        <version>${project.version}</version>
+    </dependency>
+</dependencies>
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>

@@ -5,3 +5,4 @@
 /doc/nacos-server-1.3.2/logs
 /doc/nacos-server-1.3.2/bin/logs
 *.iml
+target

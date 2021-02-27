@@ -35,15 +35,6 @@
         <easyexcel.version>2.0.3</easyexcel.version>
     </properties>
 
-    <dependencies>
-        <!--配置文件加密-->
-        <dependency>
-            <groupId>com.github.ulisesbocchio</groupId>
-            <artifactId>jasypt-spring-boot-starter</artifactId>
-            <version>${jasypt.version}</version>
-        </dependency>
-    </dependencies>
-
     <dependencyManagement>
         <dependencies>
             <!--spring cloud alibaba-->

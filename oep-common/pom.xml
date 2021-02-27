@@ -11,6 +11,9 @@
 
     <artifactId>oep-common</artifactId>
     <packaging>pom</packaging>
+    <modules>
+        <module>oep-common-impl</module>
+    </modules>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
