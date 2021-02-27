@@ -23,3 +23,14 @@ spring:
         locator:
           enabled: false
           lower-case-service-id: true
+      routes:
+        # 认证服务器路由配置
+        - id: oep-auth
+          uri: lb://oep-auth
+          predicates:
+            - Path=/auth/**
+        # pc平台路由配置
+        - id: oep-web-api
+          uri: lb://oep-web-api
+          predicates:
+            - Path=/hello/**
