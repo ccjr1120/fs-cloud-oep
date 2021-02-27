@@ -1,0 +1,19 @@
+server:
+  port: 6085
+spring:
+  application:
+    name: oep-web-api
+  profiles:
+    active: dev
+  cloud:
+    #nacos配置
+    nacos:
+      discovery:
+        namespace: e60aed67-a57c-488a-a592-ba5a6b4db07b
+        server-addr: localhost:8848
+      config:
+        server-addr: ${spring.cloud.nacos.discovery.server-addr}
+        namespace: ${spring.cloud.nacos.discovery.namespace}
+        file-extension: yaml
+        #共享配置文件
+        shared-dataids: application.yaml

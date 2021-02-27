@@ -3,18 +3,19 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>oep-cloud</artifactId>
+        <artifactId>oep-api</artifactId>
         <groupId>com.cloud</groupId>
         <version>1.0.0</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>oep-user-service</artifactId>
+    <artifactId>oep-web-api</artifactId>
     <dependencies>
+        <!--spring cloud web依赖-->
         <dependency>
             <groupId>com.cloud</groupId>
-            <artifactId>oep-user-service-api</artifactId>
-            <version>1.0.0</version>
+            <artifactId>oep-common-impl</artifactId>
+            <version>${project.version}</version>
         </dependency>
     </dependencies>
     <properties>

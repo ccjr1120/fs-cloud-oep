@@ -13,6 +13,7 @@
         <module>oep-gateway</module>
         <module>oep-auth</module>
         <module>oep-service</module>
+        <module>oep-api</module>
     </modules>
 
     <properties>

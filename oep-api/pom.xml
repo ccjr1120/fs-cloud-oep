@@ -9,14 +9,12 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>oep-user-service</artifactId>
-    <dependencies>
-        <dependency>
-            <groupId>com.cloud</groupId>
-            <artifactId>oep-user-service-api</artifactId>
-            <version>1.0.0</version>
-        </dependency>
-    </dependencies>
+    <artifactId>oep-api</artifactId>
+    <packaging>pom</packaging>
+    <modules>
+        <module>oep-web-api</module>
+    </modules>
+
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>

@@ -11,11 +11,6 @@
 
     <artifactId>oep-user-service-api</artifactId>
     <dependencies>
-        <!--web项目-->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
         <!--undertow容器性能优于 Tomcat-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
