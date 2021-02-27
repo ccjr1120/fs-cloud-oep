@@ -11,6 +11,11 @@
 
     <artifactId>oep-auth</artifactId>
     <dependencies>
+        <dependency>
+            <groupId>com.cloud</groupId>
+            <artifactId>oep-common-impl</artifactId>
+            <version>1.0.0</version>
+        </dependency>
         <!--用户模块-->
         <dependency>
             <groupId>com.cloud</groupId>
