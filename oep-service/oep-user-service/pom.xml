@@ -7,20 +7,10 @@
         <groupId>com.cloud</groupId>
         <version>1.0.0</version>
     </parent>
-    <packaging>pom</packaging>
-
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>oep-service</artifactId>
+    <artifactId>oep-user-service</artifactId>
 
-    <modules>
-        <module>oep-user-service</module>
-        <module>oep-exam-service</module>
-        <module>oep-notif-service</module>
-        <module>oep-exam-service-api</module>
-        <module>oep-user-service-api</module>
-        <module>oep-notif-service-api</module>
-    </modules>
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>

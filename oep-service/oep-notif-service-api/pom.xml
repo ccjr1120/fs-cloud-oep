@@ -3,24 +3,14 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>oep-cloud</artifactId>
+        <artifactId>oep-service</artifactId>
         <groupId>com.cloud</groupId>
         <version>1.0.0</version>
     </parent>
-    <packaging>pom</packaging>
-
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>oep-service</artifactId>
+    <artifactId>oep-notif-service-api</artifactId>
 
-    <modules>
-        <module>oep-user-service</module>
-        <module>oep-exam-service</module>
-        <module>oep-notif-service</module>
-        <module>oep-exam-service-api</module>
-        <module>oep-user-service-api</module>
-        <module>oep-notif-service-api</module>
-    </modules>
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
