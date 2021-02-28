@@ -29,8 +29,13 @@ spring:
           uri: lb://oep-auth
           predicates:
             - Path=/auth/**
+          filters:
+            - StripPrefix=1
         # pc平台路由配置
         - id: oep-web-api
           uri: lb://oep-web-api
           predicates:
-            - Path=/hello/**
+            - Path=/pc/**
+          filters:
+            - AuthorizeGatewayFilter
+            - StripPrefix=1
