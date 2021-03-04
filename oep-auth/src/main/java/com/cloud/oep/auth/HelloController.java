@@ -4,8 +4,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * @author ling
- * @date 2021/2/28
+ * @author zrf
+ * @date 2021/3/4
  */
 @RestController
 public class HelloController {
@@ -14,5 +14,4 @@ public class HelloController {
     public String hello(){
         return "hello";
     }
-
 }
