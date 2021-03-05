@@ -22,7 +22,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
                 //允许访问的资源
-                .antMatchers("/hello").permitAll()
+                .antMatchers("/hello","/oauth/**").permitAll()
                 //其它资源都受保护
                 .anyRequest().authenticated()
                 .and().csrf().disable();

@@ -35,6 +35,7 @@ public class AppAuthenticationProvider implements AuthenticationProvider {
 
     @Override
     public Authentication authenticate(Authentication authentication) throws AuthenticationException {
+        System.err.println("2112321");
         String username = (String) authentication.getPrincipal();
         String password = (String) authentication.getCredentials();
         Map<String, String> details = getAuthenticDetail(authentication);
