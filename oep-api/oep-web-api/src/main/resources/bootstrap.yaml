@@ -9,7 +9,6 @@ spring:
     #nacos配置
     nacos:
       discovery:
-        namespace: e60aed67-a57c-488a-a592-ba5a6b4db07b
         server-addr: localhost:8848
       config:
         server-addr: ${spring.cloud.nacos.discovery.server-addr}
