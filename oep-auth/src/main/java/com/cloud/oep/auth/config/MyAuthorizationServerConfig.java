@@ -40,17 +40,18 @@ import java.util.Map;
 @EnableAuthorizationServer
 public class MyAuthorizationServerConfig extends AuthorizationServerConfigurerAdapter {
 
-    @Resource
+    @Autowired
     private DataSource dataSource;
-    @Resource(name = "authenticationManagerBean")
+    @Autowired
+    @Qualifier("authenticationManagerBean")
     private AuthenticationManager authenticationManager;
-    @Resource
+    @Autowired
     private OepUserServiceImpl oepUserService;
-    @Resource
+    @Autowired
     private TokenEnhancer tokenEnhancer;
-    @Resource
+    @Autowired
     private KeyPair keyPair;
-    @Resource
+    @Autowired
     private RedisUtils redisUtils;
 
 

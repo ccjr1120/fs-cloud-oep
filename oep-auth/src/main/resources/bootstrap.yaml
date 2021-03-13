@@ -16,3 +16,8 @@ spring:
         file-extension: yaml
         #共享配置文件
         shared-dataids: application.yaml
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/oep_sys
+    username: root
+    password: 123456

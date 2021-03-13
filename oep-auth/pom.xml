@@ -16,6 +16,12 @@
             <artifactId>oep-common-impl</artifactId>
             <version>1.0.0</version>
         </dependency>
+        <!--数据持久层-->
+        <dependency>
+            <groupId>com.cloud</groupId>
+            <artifactId>oep-common-data</artifactId>
+            <version>1.0.0</version>
+        </dependency>
         <!--用户模块-->
         <dependency>
             <groupId>com.cloud</groupId>
