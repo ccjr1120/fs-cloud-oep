@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
@@ -23,24 +24,6 @@ import javax.annotation.Resource;
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
-    @Resource
-    private MyAuthenticationProvider myAuthenticationProvider;
-
-    /**
-     * 登录配置
-     */
-    @Override
-    protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests()
-                //允许访问
-                .antMatchers("/oauth/**","/token/**")
-                .permitAll()
-                //其它资源都受保护
-                .anyRequest().authenticated()
-                .and()
-                .csrf().disable();
-    }
-
     /**
      * 验证管理器
      */
@@ -50,12 +33,28 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         return super.authenticationManagerBean();
     }
 
-    /**
-     * 加密模式
-     */
-    @Bean
-    public PasswordEncoder passwordEncoder(){
-        return PasswordEncoderFactories.createDelegatingPasswordEncoder();
+    @Override
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {    //auth.inMemoryAuthentication()
+        auth.inMemoryAuthentication()
+                .withUser("nicky")
+                .password("{noop}123")
+                .roles("admin");
+    }
+
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        http   // 配置登录页并允许访问
+                //.formLogin().permitAll()
+                // 配置Basic登录
+                //.and().httpBasic()
+                // 配置登出页面
+                .logout().logoutUrl("/logout").logoutSuccessUrl("/")
+                // 配置允许访问的链接
+                .and().authorizeRequests().antMatchers("/oauth/**", "/login/**", "/logout/**","/api/**").permitAll()
+                // 其余所有请求全部需要鉴权认证
+                .anyRequest().authenticated()
+                // 关闭跨域保护;
+                .and().csrf().disable();
     }
 
 }
