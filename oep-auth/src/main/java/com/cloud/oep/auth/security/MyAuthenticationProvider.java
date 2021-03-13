@@ -15,15 +15,16 @@ import java.util.Map;
  * @date 2021/3/11
  */
 @Component
-public class AppAuthenticationProvider implements AuthenticationProvider {
+public class MyAuthenticationProvider implements AuthenticationProvider {
 
     @Override
     public Authentication authenticate(Authentication authentication) throws AuthenticationException {
+        System.err.println("自定义认证");
         return null;
     }
 
     @Override
     public boolean supports(Class<?> aClass) {
-        return false;
+        return aClass.equals(UsernamePasswordAuthenticationToken.class);
     }
 }
