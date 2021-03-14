@@ -21,3 +21,6 @@ spring:
     url: jdbc:mysql://localhost:3306/oep_sys
     username: root
     password: 123456
+logging:
+  level:
+    root: info

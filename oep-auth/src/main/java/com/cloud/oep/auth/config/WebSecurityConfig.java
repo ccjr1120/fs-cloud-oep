@@ -4,6 +4,7 @@ import com.cloud.oep.auth.security.MyAuthenticationProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.annotation.Order;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -20,6 +21,7 @@ import javax.annotation.Resource;
  * @date 2021/3/11
  */
 
+@Order(1)
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
@@ -43,18 +45,18 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http   // 配置登录页并允许访问
-                //.formLogin().permitAll()
-                // 配置Basic登录
-                //.and().httpBasic()
-                // 配置登出页面
-                .logout().logoutUrl("/logout").logoutSuccessUrl("/")
+        http
                 // 配置允许访问的链接
-                .and().authorizeRequests().antMatchers("/oauth/**", "/login/**", "/logout/**","/api/**").permitAll()
+                .authorizeRequests().antMatchers("/oauth/**","/login/**", "/hello/**").permitAll()
                 // 其余所有请求全部需要鉴权认证
                 .anyRequest().authenticated()
                 // 关闭跨域保护;
                 .and().csrf().disable();
+    }
+
+    @Bean
+    PasswordEncoder passwordEncoder() {
+        return PasswordEncoderFactories.createDelegatingPasswordEncoder();
     }
 
 }

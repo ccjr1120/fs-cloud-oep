@@ -25,6 +25,7 @@ import org.springframework.security.oauth2.provider.OAuth2Authentication;
 import org.springframework.security.oauth2.provider.token.TokenEnhancer;
 import org.springframework.security.oauth2.provider.token.TokenEnhancerChain;
 import org.springframework.security.oauth2.provider.token.TokenStore;
+import org.springframework.security.oauth2.provider.token.store.InMemoryTokenStore;
 import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter;
 import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
 import org.springframework.security.oauth2.provider.token.store.redis.RedisTokenStore;
@@ -61,11 +62,10 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
         clients.inMemory()
                 //客户端id
-                .withClient("platform")
-                .secret("{secret}")
+                .withClient("cms")
+                .secret("{noop}secret")
                 .autoApprove(true)
-                //重定向地址
-                .redirectUris("https:www.baidu.com")
+                .redirectUris("http://127.0.0.1:8084/cms/login")
                 .scopes("all")
                 .accessTokenValiditySeconds(120)
                 .refreshTokenValiditySeconds(120)
@@ -78,8 +78,9 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
         endpoints
                 .authenticationManager(authenticationManager)
-                .tokenStore(new RedisTokenStore(redisConnectionFactory))
+                .tokenStore(memoryTokenStore())
                 .allowedTokenEndpointRequestMethods(HttpMethod.GET, HttpMethod.POST);
+
     }
 
     @Override
@@ -89,4 +90,10 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
                 //允许表单验证
                 .allowFormAuthenticationForClients();
     }
+    @Bean
+    public TokenStore memoryTokenStore() {
+        // 最基本的InMemoryTokenStore生成token
+        return new InMemoryTokenStore();
+    }
+
 }
