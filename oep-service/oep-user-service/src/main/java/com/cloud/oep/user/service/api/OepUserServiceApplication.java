@@ -1,4 +1,4 @@
-package com.cloud.oep.user.service;
+package com.cloud.oep.user.service.api;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

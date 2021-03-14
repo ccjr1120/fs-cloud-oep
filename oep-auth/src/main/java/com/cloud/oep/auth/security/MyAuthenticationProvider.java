@@ -19,8 +19,11 @@ public class MyAuthenticationProvider implements AuthenticationProvider {
 
     @Override
     public Authentication authenticate(Authentication authentication) throws AuthenticationException {
-        System.err.println("自定义认证");
-        return null;
+        String username = (String) authentication.getPrincipal();
+        String password =(String) authentication.getCredentials();
+        System.err.println(username);
+        System.err.println(password);
+        return new UsernamePasswordAuthenticationToken(12, null,null);
     }
 
     @Override

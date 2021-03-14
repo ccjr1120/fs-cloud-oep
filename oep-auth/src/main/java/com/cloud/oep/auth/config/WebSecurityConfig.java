@@ -26,6 +26,9 @@ import javax.annotation.Resource;
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
+    @Autowired
+    private MyAuthenticationProvider myAuthenticationProvider;
+
     /**
      * 验证管理器
      */
@@ -37,10 +40,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {    //auth.inMemoryAuthentication()
-        auth.inMemoryAuthentication()
-                .withUser("nicky")
-                .password("{noop}123")
-                .roles("admin");
+        auth.authenticationProvider(myAuthenticationProvider);
     }
 
     @Override

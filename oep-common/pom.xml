@@ -16,6 +16,7 @@
         <module>oep-common-security</module>
         <module>oep-common-core</module>
         <module>oep-common-data</module>
+        <module>oep-common-api</module>
     </modules>
 
     <properties>

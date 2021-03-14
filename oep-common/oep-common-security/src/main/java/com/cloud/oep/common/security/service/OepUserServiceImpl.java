@@ -16,8 +16,4 @@ public class OepUserServiceImpl implements UserDetailsService {
         System.err.println(12312);
         return null;
     }
-
-    public UserDetails loadUserByUsername(String username, Integer uType) throws UsernameNotFoundException {
-        return null;
-    }
 }

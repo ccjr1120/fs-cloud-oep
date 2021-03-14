@@ -1,41 +1,19 @@
 package com.cloud.oep.auth.config;
 
-import com.cloud.oep.auth.security.MyAuthenticationProvider;
-import com.cloud.oep.common.core.constant.AuthConstants;
-import com.cloud.oep.common.core.constant.SecurityConstants;
-import com.cloud.oep.common.core.utils.RedisUtils;
-import com.cloud.oep.common.security.service.OepClientDetailsService;
 import com.cloud.oep.common.security.service.OepUserServiceImpl;
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.oauth2.common.OAuth2AccessToken;
 import org.springframework.security.oauth2.config.annotation.configurers.ClientDetailsServiceConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.AuthorizationServerConfigurerAdapter;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerEndpointsConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerSecurityConfigurer;
-import org.springframework.security.oauth2.provider.OAuth2Authentication;
-import org.springframework.security.oauth2.provider.token.TokenEnhancer;
-import org.springframework.security.oauth2.provider.token.TokenEnhancerChain;
 import org.springframework.security.oauth2.provider.token.TokenStore;
 import org.springframework.security.oauth2.provider.token.store.InMemoryTokenStore;
-import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter;
-import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
-import org.springframework.security.oauth2.provider.token.store.redis.RedisTokenStore;
-
-import javax.annotation.Resource;
-import javax.sql.DataSource;
-import java.security.KeyPair;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
 /**
  * @author zrf
@@ -65,7 +43,6 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
                 .withClient("cms")
                 .secret("{noop}secret")
                 .autoApprove(true)
-                .redirectUris("http://127.0.0.1:8084/cms/login")
                 .scopes("all")
                 .accessTokenValiditySeconds(120)
                 .refreshTokenValiditySeconds(120)

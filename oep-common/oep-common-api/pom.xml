@@ -3,23 +3,25 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>oep-service</artifactId>
+        <artifactId>oep-common</artifactId>
         <groupId>com.cloud</groupId>
         <version>1.0.0</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>oep-user-service-api</artifactId>
+    <artifactId>oep-common-api</artifactId>
+
     <dependencies>
         <dependency>
             <groupId>com.cloud</groupId>
-            <artifactId>oep-common-api</artifactId>
+            <artifactId>oep-common-core</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.cloud</groupId>
+            <artifactId>oep-common-data</artifactId>
             <version>1.0.0</version>
         </dependency>
     </dependencies>
-    <properties>
-        <maven.compiler.source>8</maven.compiler.source>
-        <maven.compiler.target>8</maven.compiler.target>
-    </properties>
 
 </project>
